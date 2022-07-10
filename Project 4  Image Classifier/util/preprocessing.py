@@ -11,5 +11,5 @@ def process_image(image):
 def predict(image_path,model,top_k):    
     prediction = model.predict(np.expand_dims(image_path, axis=0))
     result_values, result_indices = tf.math.top_k(prediction,top_k)
-    classes = [class_names[str(element)] for element in result_indices.numpy()[0]]
+    classes = [class_names[str(element + 1)] for element in result_indices.numpy()[0]]
     return result_values.numpy()[0], classes

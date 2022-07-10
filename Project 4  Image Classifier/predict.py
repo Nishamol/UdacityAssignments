@@ -32,7 +32,7 @@ def main():
     processed_test_image = pp.process_image(test_image)
     prob, indices = predict(processed_test_image,model,top_k)
     if class_names is not None:
-        classes = [class_names[str(element)] for element in indices]
+        classes = [class_names[str(element + 1)] for element in indices]
         print(list(zip(classes,prob)))
     else:
         print(list(zip(indices,prob)))
